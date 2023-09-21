@@ -1,0 +1,25 @@
+.sidebar {
+  min-height: 100vh;
+  height: 100%;
+  max-width: 600px;
+  width: 100%;
+  background-color: #2b2f3e;
+  width: 15%;
+  padding: 10px;
+
+  @media (max-width: 576px) {
+    width: 100%;
+  }
+
+  &__title {
+    color: white;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    color: #5b5d63;
+  }
+}

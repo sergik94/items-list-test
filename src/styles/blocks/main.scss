@@ -1,0 +1,28 @@
+.main {
+  width: 100%;
+  height: max-content;
+  display: flex;
+  justify-content: space-around;
+  max-width: 1140px;
+  flex-wrap: wrap;
+
+  @media (max-width: 1295px) {
+    justify-content: center;
+  }
+
+  &__items {
+    margin: 10px;
+  }
+
+  &__card {
+    margin: 10px;
+  }
+
+  &__items-title {
+    margin-bottom: 8px;
+  }
+
+  &__comments-title {
+    margin-bottom: 20px;
+  }
+}

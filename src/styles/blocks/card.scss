@@ -1,0 +1,66 @@
+.card {
+  color: #353535;
+  font-size: 16px;
+  line-height: 1.6em;
+  flex: 0 1 500px;
+  max-width: 1000px;
+  padding: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  height: max-content;
+
+  &__title {
+    text-align: left;
+    font-weight: normal;
+    color: gray;
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  &__item-form {
+    margin: 10px 0;
+    height: 38px;
+  }
+
+  &__comments-form {
+    margin-top: 20px;
+    height: 62px;
+  }
+
+  &__input {
+    height: 100%;
+    border: 1px solid rgb(206 212 218);
+    border-radius: 4px;
+    font-size: inherit;
+    padding: 6px 12px;
+
+    &:focus {
+      border-color: rgb(23, 162, 184);
+      box-shadow: 0px 0px 2px 2px  rgb(71, 194, 252);
+    }
+  }
+
+  &__item-button {
+    width: 90px;
+    color: #fff;
+    background-color: #17a2b8;
+    transition: color .15s;
+
+    &:hover {
+      background-color: #118192;
+    }
+  }
+
+  &__comments-button {
+    background-color: #007bff;
+    transition: color .15s;
+
+    &:hover {
+      background-color: #0166d3;
+    }
+  }
+
+  &__comment {
+    margin: 10px;
+    display: flex;
+  }
+}

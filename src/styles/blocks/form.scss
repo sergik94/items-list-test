@@ -1,0 +1,25 @@
+.form {
+  display: flex;
+
+  &__textline {
+    display: block;
+    flex-grow: 1;
+    height: 100%;
+    margin: 0 10px;
+  }
+
+  &__button {
+    width: max-content;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  &__color {
+    width: 100px;
+  }
+
+  &__textarea {
+    margin: 0 10px;
+    width: 100%;
+  }
+}

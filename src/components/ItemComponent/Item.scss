@@ -1,0 +1,43 @@
+.item {
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 4px;
+  padding: 12px 20px;
+  min-height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  &--active {
+    border-left: 4px solid deeppink;
+  }
+
+  &__total {
+    position: absolute;
+    right: 100px;
+    color: #fff;
+    background-color: #17a2b8;
+    padding: 3px 7.2px;
+    border-radius: 160px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 100%;
+  }
+
+  &__delete {
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    background-color: transparent;
+    display: block;
+    text-align: center;
+    font-size: inherit;
+    height: 38px;
+    width: 72px;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: #dc3545;
+      color: #fff;
+    }
+  }
+}
