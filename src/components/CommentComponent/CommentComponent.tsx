@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Comment } from '../types/Comment';
+import { Comment } from '../../types/Comment';
 
 import './Comment.scss';
 
@@ -8,9 +8,6 @@ type Props = {
 };
 
 export const CommentComponent = memo(function CommentComponent({ comment }: Props) {
-
-  console.log(comment.id);
-
   return (
     <li className="card__comment comment">
       <div

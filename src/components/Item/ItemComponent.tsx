@@ -1,31 +1,25 @@
-import { memo } from 'react';
-import { Item } from '../../types/Item';
+import { Item } from "../../types/Item";
 import classNames from 'classnames';
-import { useAppDispatch, useAppSelector } from '../../storeFeatures/hooks';
+import { useAppDispatch, useAppSelector } from "../../storeFeatures/hooks";
 import { actions as itemsActions } from '../../reducers/items';
 import { actions as activeItemActions } from '../../reducers/activeItem';
-import { itemsSelector, activeItemSelector } from '../../storeFeatures/selectors';
-
-import './Item.scss';
 
 type Props = {
   item: Item;
-};
+}
 
-export const ItemComponent = memo(function ItemComponent({ item }: Props) {
-  const activeItem = useAppSelector(activeItemSelector);
-  const items = useAppSelector(itemsSelector);
+export default function ItemComponent({ item }: Props) {
+  const activeItem = useAppSelector(state => state.activeItem);
+  const items = useAppSelector(state => state.items);
   
   const dispatch = useAppDispatch();
 
-  const setActiveItem = () => {
+  const setActiveItem = (item: Item) => {
     dispatch(activeItemActions.setItem(item));
   }
 
-  const removeItem = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const removeItem = (item: Item) => (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.stopPropagation();
-
-    dispatch(itemsActions.remove(item));
 
     if (item.id === activeItem?.id) {
       const activeItemIndex = items.findIndex(elem => elem.id === item.id);
@@ -40,16 +34,19 @@ export const ItemComponent = memo(function ItemComponent({ item }: Props) {
         ? dispatch(activeItemActions.setItem(items[1]))
         : dispatch(activeItemActions.setItem(items[activeItemIndex - 1]));
     }
+
+    dispatch(itemsActions.remove(item));
   }
 
   return (
     <li
+      key={item.id}
       className={classNames(
         'card__item',
         'item',
         { 'item--active': item.id === activeItem?.id }
       )}
-      onClick={setActiveItem}
+      onClick={() => setActiveItem(item)}
     >
       {item.name}
 
@@ -60,10 +57,10 @@ export const ItemComponent = memo(function ItemComponent({ item }: Props) {
       <button
         type="button"
         className="item__delete"
-        onClick={removeItem}
+        onClick={removeItem(item)}
       >
         Delete
       </button>
     </li>
   )
-});
+}

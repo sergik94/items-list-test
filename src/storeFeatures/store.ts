@@ -1,6 +1,6 @@
 import { createStore, combineReducers } from 'redux';
-import activeItemReducer from '../features/activeItem';
-import ItemsReducer from '../features/items';
+import activeItemReducer from '../reducers/activeItem';
+import ItemsReducer from '../reducers/items';
 
 const rootReducer = combineReducers({
   activeItem: activeItemReducer,

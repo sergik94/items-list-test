@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { actions as itemsActions } from '../../features/items';
-import { actions as activeItemActions } from '../../features/activeItem';
+import { useAppSelector, useAppDispatch } from "../../storeFeatures/hooks";
+import { actions as itemsActions } from '../../reducers/items';
+import { actions as activeItemActions } from '../../reducers/activeItem';
 import { Comment } from '../../types/Comment';
-import { CommentComponent } from '../../CommentComponent/CommentComponent';
+import { CommentComponent } from '../CommentComponent/CommentComponent';
+import { activeItemSelector } from '../../storeFeatures/selectors';
 
 export function CommentsCard() {
-  const activeItem = useAppSelector(state => state.activeItem);
+  const activeItem = useAppSelector(activeItemSelector);
   const dispatch = useAppDispatch();
   const [color, setColor] = useState('#000000');
   const [text, setText] = useState('');

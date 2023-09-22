@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { actions as itemsActions } from '../../features/items';
-import { actions as activeItemActions } from '../../features/activeItem';
+import { useAppDispatch, useAppSelector } from "../../storeFeatures/hooks";
+import { actions as itemsActions } from '../../reducers/items';
+import { actions as activeItemActions } from '../../reducers/activeItem';
 import { generateItemId } from '../../functions/generateItemId';
-import { ItemComponent } from '../ItemComponent/ItemComponent'
+import { ItemComponent } from '../ItemComponent/ItemComponent';
+import { itemsSelector } from '../../storeFeatures/selectors';
 
 export default function ItemsCard() {
-  const items = useAppSelector(state => state.items);
+  const items = useAppSelector(itemsSelector);
   const dispatch = useAppDispatch();
 
   const [name, setName] = useState('');

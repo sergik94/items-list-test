@@ -4,9 +4,9 @@ import { CommentsCard } from './components/CommentsCard/CommentsCard';
 import ItemsCard from './components/ItemsCard/ItemsCard';
 import Sidebar from './components/Sidebar/Sidebar';
 import { Item } from './types/Item';
-import { actions as itemsActions } from './features/items';
-import { actions as activeItemActions } from './features/activeItem';
-import { useAppDispatch } from './app/hooks';
+import { actions as itemsActions } from './reducers/items';
+import { actions as activeItemActions } from './reducers/activeItem';
+import { useAppDispatch } from './storeFeatures/hooks';
 import { generateItemId } from './functions/generateItemId';
 
 function App() {
