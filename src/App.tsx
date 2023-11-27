@@ -40,8 +40,16 @@ function App() {
     }
   }
 
+  const doTestRequest = async () => {
+    const BASE_URL = 'http://ec2-34-192-33-253.compute-1.amazonaws.com/api/';
+    const res = await fetch(BASE_URL + 'masters/men').then((res) => res.json())
+
+    console.log(res);
+  }
+
   useEffect(() => {
     getItemsFromStorage();
+    doTestRequest();
   }, []);
 
   return (
